@@ -1,3 +1,4 @@
+export const dynamic = 'force-dynamic';
 import { NextResponse } from 'next/server';
 import connectToDatabase from '@/lib/mongodb';
 import Quiz from '@/lib/models/Quiz';
@@ -5,7 +6,7 @@ import { getAuthUser } from '@/lib/auth';
 
 export async function GET(
     req: Request,
-    { params }: { params: { subjectId: string } }
+    { params }: { params: Promise<{ subjectId: string }> }
 ) {
     try {
         await connectToDatabase();
@@ -19,7 +20,7 @@ export async function GET(
 
 export async function POST(
     req: Request,
-    { params }: { params: { subjectId: string } }
+    { params }: { params: Promise<{ subjectId: string }> }
 ) {
     try {
         await connectToDatabase();

@@ -1,3 +1,4 @@
+export const dynamic = 'force-dynamic';
 import { NextResponse } from 'next/server';
 import connectToDatabase from '@/lib/mongodb';
 import Question from '@/lib/models/Question';
@@ -32,3 +33,4 @@ export async function POST(req: Request) {
         return NextResponse.json({ message: err.message }, { status: 500 });
     }
 }
+

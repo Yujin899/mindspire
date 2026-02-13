@@ -1,3 +1,4 @@
+export const dynamic = 'force-dynamic';
 import { NextResponse } from 'next/server';
 import mongoose from 'mongoose';
 import connectToDatabase from '@/lib/mongodb';
@@ -76,3 +77,4 @@ export async function GET(req: Request) {
         return NextResponse.json({ message: err.message }, { status: 500 });
     }
 }
+
