@@ -1,9 +1,9 @@
 export const dynamic = 'force-dynamic';
-import { NextResponse } from 'next/server';
+import { NextRequest, NextResponse } from 'next/server';
 import connectToDatabase from '@/lib/mongodb';
 import User from '@/lib/models/User';
 
-export async function GET() {
+export async function GET(req: NextRequest) {
     try {
         await connectToDatabase();
         const leaderboard = await User.find({ role: 'student' })
@@ -16,4 +16,7 @@ export async function GET() {
         return NextResponse.json({ message: err.message }, { status: 500 });
     }
 }
+
+
+
 

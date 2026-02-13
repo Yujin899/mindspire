@@ -1,12 +1,12 @@
 export const dynamic = 'force-dynamic';
-import { NextResponse } from 'next/server';
+import { NextRequest, NextResponse } from 'next/server';
 import connectToDatabase from '@/lib/mongodb';
 import Question from '@/lib/models/Question';
 import User from '@/lib/models/User';
 import Attempt from '@/lib/models/Attempt';
 import { getAuthUser } from '@/lib/auth';
 
-export async function POST(req: Request) {
+export async function POST(req: NextRequest) {
     try {
         await connectToDatabase();
         const decoded = await getAuthUser();
@@ -102,4 +102,7 @@ export async function POST(req: Request) {
         return NextResponse.json({ message: err.message }, { status: 500 });
     }
 }
+
+
+
 

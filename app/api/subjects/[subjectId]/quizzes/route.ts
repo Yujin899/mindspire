@@ -1,11 +1,11 @@
 export const dynamic = 'force-dynamic';
-import { NextResponse } from 'next/server';
+import { NextRequest, NextResponse } from 'next/server';
 import connectToDatabase from '@/lib/mongodb';
 import Quiz from '@/lib/models/Quiz';
 import { getAuthUser } from '@/lib/auth';
 
 export async function GET(
-    req: Request,
+    req: NextRequest,
     { params }: { params: Promise<{ subjectId: string }> }
 ) {
     try {
@@ -19,7 +19,7 @@ export async function GET(
 }
 
 export async function POST(
-    req: Request,
+    req: NextRequest,
     { params }: { params: Promise<{ subjectId: string }> }
 ) {
     try {

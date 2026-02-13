@@ -1,10 +1,10 @@
 export const dynamic = 'force-dynamic';
-import { NextResponse } from 'next/server';
+import { NextRequest, NextResponse } from 'next/server';
 import connectToDatabase from '@/lib/mongodb';
 import Question from '@/lib/models/Question';
 
 export async function GET(
-    req: Request,
+    req: NextRequest,
     { params }: { params: Promise<{ quizId: string }> }
 ) {
     try {

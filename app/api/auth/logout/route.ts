@@ -1,7 +1,7 @@
 export const dynamic = 'force-dynamic';
-import { NextResponse } from 'next/server';
+import { NextRequest, NextResponse } from 'next/server';
 
-export async function POST() {
+export async function POST(req: NextRequest) {
     const response = NextResponse.json({ message: 'Logged out successfully' });
 
     response.cookies.set('auth_token', '', {
@@ -14,4 +14,6 @@ export async function POST() {
 
     return response;
 }
+
+
 
